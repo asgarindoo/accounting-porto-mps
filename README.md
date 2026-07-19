@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # Accounting Portfolio — React Clone
 
 Website portfolio akuntan fresh graduate, clone dari [accounting-p.lovable.app](https://accounting-p.lovable.app/).
@@ -63,3 +64,6 @@ npm run dev
 ```bash
 npm run build
 ```
+=======
+# accounting-porto-mps
+>>>>>>> 3a8bb56c2bbb4b4b7d77770f8671a92c3e052626
