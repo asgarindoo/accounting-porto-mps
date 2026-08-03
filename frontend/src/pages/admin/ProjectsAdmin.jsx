@@ -74,7 +74,7 @@ function ProjectForm({ initialData, onSubmit, onCancel, isLoading, onError }) {
           formData.append('oldUrl', initialData.image);
         }
 
-        const res = await fetch(`${import.meta.env.VITE_API_URL || 'http://localhost:5000'}/api/upload`, {
+        const res = await fetch(`${import.meta.env.VITE_API_URL || ''}/api/upload`, {
           method: 'POST',
           body: formData,
           credentials: 'include',
@@ -85,7 +85,7 @@ function ProjectForm({ initialData, onSubmit, onCancel, isLoading, onError }) {
       } else if (initialData && form.image === '' && initialData.image) {
         // user removed the image without replacing it
         try {
-          await fetch(`${import.meta.env.VITE_API_URL || 'http://localhost:5000'}/api/upload`, {
+          await fetch(`${import.meta.env.VITE_API_URL || ''}/api/upload`, {
             method: 'DELETE',
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify({ url: initialData.image, bucket: 'images' }),
@@ -293,7 +293,7 @@ export function ProjectsAdmin() {
       const projectToDelete = projects.find(p => p.id === deletingId);
       if (projectToDelete && projectToDelete.image) {
         try {
-          await fetch(`${import.meta.env.VITE_API_URL || 'http://localhost:5000'}/api/upload`, {
+          await fetch(`${import.meta.env.VITE_API_URL || ''}/api/upload`, {
             method: 'DELETE',
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify({ url: projectToDelete.image, bucket: 'images' }),

@@ -58,7 +58,7 @@ export function SettingsAdmin() {
 
     try {
       setUploading(true);
-      const res = await fetch(`${import.meta.env.VITE_API_URL || 'http://localhost:5000'}/api/upload`, {
+      const res = await fetch(`${import.meta.env.VITE_API_URL || ''}/api/upload`, {
         method: 'POST',
         body: formData,
         credentials: 'include',
@@ -96,7 +96,7 @@ export function SettingsAdmin() {
 
     try {
       setUploading(true);
-      const res = await fetch(`${import.meta.env.VITE_API_URL || 'http://localhost:5000'}/api/upload`, {
+      const res = await fetch(`${import.meta.env.VITE_API_URL || ''}/api/upload`, {
         method: 'DELETE',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ url: currentUrl, bucket: 'images' }),
