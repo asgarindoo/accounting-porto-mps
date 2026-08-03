@@ -37,7 +37,7 @@ export function ProjectsSection() {
  * Extracted as a named export so the Admin dashboard can render a live preview
  * of a project while it is being edited.
  */
-export function ProjectCard({ project }) {
+function ProjectCard({ project }) {
   return (
     <article className={`project-card reveal ${project.featured ? 'project-card--featured' : ''}`}>
       <div className="project-card__img-wrap">

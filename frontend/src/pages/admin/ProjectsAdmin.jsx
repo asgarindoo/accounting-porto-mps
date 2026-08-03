@@ -10,7 +10,7 @@ import '../../components/admin/admin.css';
 
 const EMPTY_FORM = { title: '', description: '', content: '', link: '', image: '', featured: false, tags: '' };
 
-function ProjectForm({ initialData, onSubmit, onCancel, isLoading }) {
+function ProjectForm({ initialData, onSubmit, onCancel, isLoading, onError }) {
   const [form, setForm] = useState(
     initialData
       ? { ...initialData, tags: Array.isArray(initialData.tags) ? initialData.tags.join(', ') : (initialData.tags || '') }
@@ -100,7 +100,7 @@ function ProjectForm({ initialData, onSubmit, onCancel, isLoading }) {
         tags: form.tags.split(',').map((t) => t.trim()).filter(Boolean),
       });
     } catch (err) {
-      alert('Error uploading image: ' + err.message);
+      if (onError) onError('error', 'Error uploading image: ' + err.message);
     } finally {
       setIsUploading(false);
     }
@@ -322,6 +322,7 @@ export function ProjectsAdmin() {
           onSubmit={handleSubmit}
           onCancel={closeForm}
           isLoading={submitting}
+          onError={showAlert}
         />
       </div>
     );

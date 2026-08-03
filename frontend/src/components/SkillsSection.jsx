@@ -35,7 +35,7 @@ export function SkillsSection() {
  * SkillItem — reusable card for a single skill entry.
  * Extracted as a named export so the Admin dashboard can reuse it in a live preview.
  */
-export function SkillItem({ skill }) {
+function SkillItem({ skill }) {
   return (
     <div className="skill-item reveal">
       <div className="skill-item__icon">

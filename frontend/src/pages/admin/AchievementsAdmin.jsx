@@ -9,7 +9,7 @@ import { LoadingState } from '../../components/admin/LoadingState.jsx';
 import { EmptyState } from '../../components/admin/EmptyState.jsx';
 import '../../components/admin/admin.css';
 
-function AchievementForm({ initialData, onSubmit, onCancel, isLoading }) {
+function AchievementForm({ initialData, onSubmit, onCancel, isLoading, onError }) {
   const [form, setForm] = useState({
     icon: initialData?.icon || 'Award',
     title: initialData?.title || '',
@@ -99,7 +99,7 @@ function AchievementForm({ initialData, onSubmit, onCancel, isLoading }) {
         image: finalImageUrl,
       });
     } catch (err) {
-      alert('Error uploading image: ' + err.message);
+      if (onError) onError('error', 'Error uploading image: ' + err.message);
     } finally {
       setIsUploading(false);
     }
@@ -279,6 +279,7 @@ export function AchievementsAdmin() {
           onSubmit={handleSubmit}
           onCancel={closeForm}
           isLoading={submitting}
+          onError={showAlert}
         />
       </div>
     );

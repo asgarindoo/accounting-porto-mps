@@ -38,7 +38,7 @@ export function ExperienceSection() {
  * ExperienceItem — reusable timeline card for a single experience entry.
  * Extracted as a named export so the Admin dashboard can reuse it in a live preview.
  */
-export function ExperienceItem({ item }) {
+function ExperienceItem({ item }) {
   const ref = useScrollReveal()
   const isRight = item.align === 'right'
 

@@ -48,13 +48,6 @@ export const resumeService = {
   delete: (id) => api.resume.delete(id),
 };
 
-export const navService = {
-  getAll: () => api.nav.getAll(),
-  getById: (id) => api.nav.getById(id),
-  create: (data) => api.nav.create(data),
-  update: (id, data) => api.nav.update(id, data),
-  delete: (id) => api.nav.delete(id),
-};
 
 export const educationService = {
   getAll: () => api.education.getAll(),

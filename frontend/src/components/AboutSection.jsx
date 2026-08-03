@@ -67,7 +67,7 @@ export function AboutSection() {
  * EducationItem — reusable card for a single education entry.
  * Extracted so the Admin dashboard can render the same card in an edit preview.
  */
-export function EducationItem({ item }) {
+function EducationItem({ item }) {
   return (
     <div className="education__item">
       <div className="education__degree">{item.degree}</div>

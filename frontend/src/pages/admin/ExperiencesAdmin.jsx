@@ -65,7 +65,7 @@ function CustomSelect({ value, onChange, options, placeholder = 'Select...' }) {
               type="button"
               onClick={() => { onChange(o.value); setOpen(false); }}
               style={{
-                width: '100%', padding: '9px 12px', background: 'transparent',
+                width: '100%', padding: '9px 12px',
                 border: 'none', cursor: 'pointer', fontFamily: 'inherit', fontSize: 13,
                 display: 'flex', alignItems: 'center', gap: 10, textAlign: 'left',
                 color: value === o.value ? 'var(--text-primary)' : 'var(--text-secondary)',
