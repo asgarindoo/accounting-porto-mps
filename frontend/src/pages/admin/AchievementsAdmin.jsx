@@ -74,7 +74,7 @@ function AchievementForm({ initialData, onSubmit, onCancel, isLoading, onError }
           formData.append('oldUrl', initialData.image);
         }
 
-        const res = await fetch('http://localhost:5000/api/upload', {
+        const res = await fetch(`${import.meta.env.VITE_API_URL || 'http://localhost:5000'}/api/upload`, {
           method: 'POST',
           body: formData,
           credentials: 'include',
@@ -85,7 +85,7 @@ function AchievementForm({ initialData, onSubmit, onCancel, isLoading, onError }
       } else if (initialData && form.image === '' && initialData.image) {
         // user removed the image without replacing it
         try {
-          await fetch('http://localhost:5000/api/upload', {
+          await fetch(`${import.meta.env.VITE_API_URL || 'http://localhost:5000'}/api/upload`, {
             method: 'DELETE',
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify({ url: initialData.image, bucket: 'images' }),
@@ -248,7 +248,7 @@ export function AchievementsAdmin() {
       const itemToDelete = items.find(i => i.id === deletingId);
       if (itemToDelete && itemToDelete.image) {
         try {
-          await fetch('http://localhost:5000/api/upload', {
+          await fetch(`${import.meta.env.VITE_API_URL || 'http://localhost:5000'}/api/upload`, {
             method: 'DELETE',
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify({ url: itemToDelete.image, bucket: 'images' }),

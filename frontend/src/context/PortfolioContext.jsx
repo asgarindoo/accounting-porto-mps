@@ -54,7 +54,7 @@ export function PortfolioProvider({ children }) {
   const fetchData = useCallback(async () => {
     try {
       setError(null)
-      const res = await fetch('http://localhost:5000/api/portfolio')
+      const res = await fetch(`${import.meta.env.VITE_API_URL || 'http://localhost:5000'}/api/portfolio`)
       if (!res.ok) {
         throw new Error('Failed to fetch data')
       }

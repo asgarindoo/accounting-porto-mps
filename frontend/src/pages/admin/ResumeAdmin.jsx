@@ -5,7 +5,7 @@ import { ConfirmDialog } from '../../components/admin/ConfirmDialog.jsx';
 import { LoadingState } from '../../components/admin/LoadingState.jsx';
 import '../../components/admin/admin.css';
 
-const UPLOAD_URL = 'http://localhost:5000/api/upload';
+const UPLOAD_URL = `${import.meta.env.VITE_API_URL || 'http://localhost:5000'}/api/upload`;
 
 export function ResumeAdmin() {
   const [resume, setResume] = useState(null);
