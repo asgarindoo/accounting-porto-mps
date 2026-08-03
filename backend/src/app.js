@@ -45,6 +45,16 @@ app.all('/api/auth/{*path}', toNodeHandler(auth));
 
 app.use(express.json());
 
+// ─── Root Route ───────────────────────────────────────────────────────────────
+app.get('/', (req, res) => {
+  res.status(200).json({
+    status: 'ok',
+    message: 'MPS Portfolio Backend API',
+    version: '1.0.0',
+    docs: '/api/health',
+  });
+});
+
 // ─── Health Check ─────────────────────────────────────────────────────────────
 app.get('/api/health', (req, res) => {
   res.status(200).json({
